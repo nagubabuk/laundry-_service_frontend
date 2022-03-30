@@ -4,11 +4,15 @@ import Orderheader from "./orderheader";
 import "./mainhome.css";
 import "font-awesome/css/font-awesome.min.css";
 import { useHistory } from "react-router-dom";
-// import { clearToken } from './Auth';
+//import { clearToken } from './Auth';
 
 function Createorder() {
   const history = useHistory();
-    
+  //const clear = clearToken()
+  // function removetoken(){
+  //   clearToken()
+  //   history.push("/")
+  // }
   return (
     <div>
       <Orderheader />

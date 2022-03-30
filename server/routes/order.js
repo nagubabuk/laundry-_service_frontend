@@ -36,9 +36,9 @@ router.post("/order", async (req,res) => {
         if(Order.press){sum+=(Order.quantity * Press)};
         if(Order.fold){sum+=(Order.quantity * Fold)};
         if(Order.pack){sum+=(Order.quantity* Pack)};
-        Order["price"] = sum;     
-        tot_price+=sum;          
-        tot_quant+=parseInt(Order.quantity);  
+        Order["price"] = sum;     // setting the price value for that garment service
+        tot_price+=sum;           // calculating the cumulative order price
+        tot_quant+=parseInt(Order.quantity);  // calculating the cumulative quantities
     });
 
     const { address, status } = req.body;
@@ -75,10 +75,10 @@ router.put("/order/:id", async (req,res) => {
     try{
         const details = await order.updateOne({
             _id: req.params.id,    
-            user_id:req.user                   
-                                 
+            user_id:req.user                     //order ID
+                                 // user ID
         },
-        {status:"Cancelled"},               
+        {status:"Cancelled"},            // updating the order status       
         );
 
         return res.json({

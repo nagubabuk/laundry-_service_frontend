@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const loginRoutes = require("./routes/login");
 const orderRoutes = require("./routes/order");
-const SECRET = "RESTAPI";
+const SECRET = "restapi";
 const bodyparser = require("body-parser");
 const cors = require('cors')
 var jwt = require('jsonwebtoken');
@@ -29,17 +29,15 @@ app.use("/api/v1/order", (req, res, next) => {
     });
     }
     const token = authorization.replace("test ", "");
-    console.log(token)
     jwt.verify(token, SECRET, async (err, payload) => {
-      console.log(err);
       if (err) {
         return res.status(401).json({
           status: "failed here2",
           message: "Invalid token"
-        });
+      });
       }
       const _id  = payload.data;
-      console.log(_id, payload.data)
+      console.log(_id,payload.data)
       await User.find({ _id:_id }).then((userdata) => {
         req.user = userdata;
         console.log(req.user,userdata,"userdata")
@@ -48,6 +46,29 @@ app.use("/api/v1/order", (req, res, next) => {
     });
 });
 
+// MIDDLEWARE FOR GET ROUTE ON USERDETAILS FOR ORDERS PAGE//
+// app.use("/api/v1/get", (req, res, next) => {
+//     var token = req.headers.authorization.split("test ")[1];
+//     // console.log(token)
+//     if(!token){
+//         return res.status(401).json({
+//             status: "failed",
+//             message: "Token is missing"
+//         })
+//     }
+//     // verify the token    
+//     jwt.verify(token, SECRET, async function(err, decoded) {
+//         if(err){
+//             return res.status(401).json({
+//                 status:"failed",
+//                 message: "Invalid token"
+//             })
+//         }
+//         req.user = decoded.data;
+//         console.log(req.user)
+//         next();
+//     });
+// });
 
 app.use("/api/v1", loginRoutes);
 app.use("/api/v1", orderRoutes);

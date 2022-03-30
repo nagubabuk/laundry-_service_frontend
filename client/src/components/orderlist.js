@@ -28,44 +28,44 @@ function Orderlist() {
 
   const orderComponents = [
     {
-      image: "shirt.jpg",
+      image: "../images/shirt.jpg",
       description:
-        "SHIRT",
+        "mens on Shirts looks cool",
       name: "Shirts",
       type: "Boolean",
     },
     {
-      image: "tshirt.jpg",
+      image: "../images/tshirt.jpg",
       description:
-        "T-SHIRT",
+        "T-SHIRT looks cool",
       name: "Tshirts",
       type: "Boolean",
     },
     {
-      image: "jeans.jpg",
+      image: "../images/jeans.jpg",
       description:
-        "JEANS",
+        "JEANS lodj kfkkjd",
       name: "Jeans",
     },
     {
-      image: "trousers.jpg",
+      image: "../images/trousers.jpg",
       description:
-        "TROUSERS",
+        "sai looks good on TROUSERS ",
       name: "Trousers",
       type: "Boolean",
     },
     {
-      image: "trousers.jpg",
+      image: "../images/Joggers.jpg",
       description:
-        "JOGGERS",
+        "JOGGERS looks cool on sai",
       name: "Joggers",
       type: "Boolean",
     },
     {
-      image: "shirt.jpg",
+      image: "../images/Others.jpg",
       description:
-        "SWEATER",
-      name: "Sweater",
+        "Items like saree and sweaters",
+      name: "Others",
       type: "Boolean",
     }
   ];
